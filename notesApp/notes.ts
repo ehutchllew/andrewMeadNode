@@ -7,10 +7,14 @@ class Notes {
 	}
 
 	public addNote({ body, title }: INote): void {
-		/* TODO: Instead of array, make a map and assign
-		 * the key as the title to check for duplicates.
+		/* Attn: Check out feature/notes-using-map for alt
+		 *	implementation using Map over Array.
 		 */
 		const allNotes: INote[] = this.loadNotes();
+		if (allNotes.find(item => item.title === title)) {
+			console.error("A note with that title already exists.");
+			return;
+		}
 
 		allNotes.push({ body, title });
 
