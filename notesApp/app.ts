@@ -1,4 +1,4 @@
-import yargs from "yargs";
+import yargs, { Arguments as Yarguments } from "yargs";
 import * as NoteOptions from "./notesCommandOptions";
 
 const { _: command }: { _: string[] } = yargs
@@ -10,21 +10,10 @@ const { _: command }: { _: string[] } = yargs
 		handleRemoveNote
 	).argv;
 
-function handleAddNote(argv?: yargs.Arguments): void {
+function handleAddNote(argv?: Yarguments): void {
 	console.log("ADD NOTE: \n", argv);
 }
 
-function handleRemoveNote(argv?: yargs.Arguments): void {
+function handleRemoveNote(argv?: Yarguments): void {
 	console.log("REMOVE NOTE: \n", argv);
 }
-
-// switch (command) {
-// 	case "add":
-// 		console.log(chalk.green("Adding a note!"));
-// 		break;
-// 	case "remove":
-// 		console.log(chalk.red("Removing a note!"));
-// 		break;
-// 	default:
-// 		console.log("Please input appropriate command.");
-// }
