@@ -20,12 +20,7 @@ const add: INotesOptions = {
 };
 
 const remove: INotesOptions = {
-	title: {
-		alias: "t",
-		demandOption: true,
-		describe: "Note Title.",
-		type: "string",
-	},
+	title: add.title,
 };
 
 export { add, remove };

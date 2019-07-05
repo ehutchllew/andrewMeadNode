@@ -22,8 +22,6 @@ class Notes {
 		this.allNotes.push({ body, title });
 
 		this.saveNotes(this.allNotes);
-
-		this.isDirty = true;
 	}
 
 	public getNotes(): string {
@@ -44,8 +42,6 @@ class Notes {
 		);
 
 		this.saveNotes(newAllNotes);
-
-		this.isDirty = true;
 	}
 
 	private findNote(title: string): INote {
@@ -71,6 +67,8 @@ class Notes {
 
 	private saveNotes(allNotes: INote[]): void {
 		fs.writeFileSync(this.notesPath, JSON.stringify(allNotes));
+
+		this.isDirty = true;
 	}
 }
 
