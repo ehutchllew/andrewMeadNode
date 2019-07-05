@@ -4,6 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
+		"debug": "nodemon --inspect -r ts-node/register",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"tsc": "tsc --noEmit --skipLibCheck",
 		"tsn": "yarn ts-node",
