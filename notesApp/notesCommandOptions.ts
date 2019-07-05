@@ -1,6 +1,6 @@
 import yargs from "yargs";
 
-interface INotesOptions {
+export interface INotesOptions {
 	[key: string]: yargs.Options;
 }
 
