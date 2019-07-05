@@ -16,7 +16,6 @@ const { _: command }: { _: string[] } = yargs
 	).argv;
 
 function handleAddNote(argv?: Yarguments<INote>): void {
-	// console.log("ADD NOTE: \n", argv);
 	const noteObject: INote = {
 		body: argv.body,
 		title: argv.title,
@@ -24,6 +23,6 @@ function handleAddNote(argv?: Yarguments<INote>): void {
 	NoteCommands.addNote(noteObject);
 }
 
-function handleRemoveNote(argv?: Yarguments): void {
-	console.log("REMOVE NOTE: \n", argv);
+function handleRemoveNote(argv?: Yarguments<INote>): void {
+	NoteCommands.removeNote(argv.title);
 }

@@ -20,10 +20,11 @@ const add: INotesOptions = {
 };
 
 const remove: INotesOptions = {
-	id: {
+	title: {
+		alias: "t",
 		demandOption: true,
-		describe: "Remove note with matching ID.",
-		type: "number",
+		describe: "Note Title.",
+		type: "string",
 	},
 };
 
