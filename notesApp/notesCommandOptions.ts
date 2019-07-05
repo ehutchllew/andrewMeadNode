@@ -19,8 +19,12 @@ const add: INotesOptions = {
 	},
 };
 
+const read: INotesOptions = {
+	title: add.title,
+};
+
 const remove: INotesOptions = {
 	title: add.title,
 };
 
-export { add, remove };
+export { add, read, remove };
