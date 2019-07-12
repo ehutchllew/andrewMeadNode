@@ -1,9 +1,13 @@
 import { AxiosResponse } from "axios";
-import { AbstractService } from "./service.model";
+import { AbstractService, IRequestConfig } from "./service.model";
 
 export class Service extends AbstractService<any> {
 	public async getGeocode(endpoint: string): Promise<AxiosResponse> {
-		const response: AxiosResponse<any> = await this.execute(endpoint);
+		const request: IRequestConfig<any> = {
+			method: "GET",
+			url: endpoint,
+		};
+		const response: AxiosResponse<any> = await this.execute(request);
 		console.log(response.data.features);
 		return response;
 	}
