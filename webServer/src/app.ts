@@ -1,23 +1,20 @@
 import express, { Application } from "express";
+import path from "path";
 
 const app: Application = express();
+const publicPath: string = path.join(__dirname, "../public");
 
-app.get("", (req, res) => {
-	res.send("Hello Express");
-});
+app.use(express.static(publicPath));
 
-app.get("/help", (req, res) => {
-	res.send("Help Page");
-});
-
-app.get("/about", (req, res) => {
-	res.send("About Page");
+app.get("/", (req, res) => {
+    res.send(`<h1>Hello World!</h1>`);
 });
 
 app.get("/weather", (req, res) => {
-	res.send("Weather Page");
+    res.send("Weather Page");
 });
 
-app.listen(3000, () => {
-	console.log("Starting on port 3000...");
+const port: number = 3001;
+app.listen(port, () => {
+    console.log(`Starting on port ${port}...`);
 });
