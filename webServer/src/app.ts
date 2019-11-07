@@ -34,6 +34,20 @@ app.get("/help", (req, res) => {
     });
 });
 
+app.get("/help/*", (req, res) => {
+    res.render("404", {
+        error: "Help Page Not Found!",
+        title: "404 Help Page Missing :O",
+    });
+});
+
+app.get("*", (req, res) => {
+    res.render("404", {
+        error: "ERROR",
+        title: "404 Page Not Found!",
+    });
+});
+
 const port: number = 3001;
 app.listen(port, () => {
     console.log(`Starting on port ${port}...`);
