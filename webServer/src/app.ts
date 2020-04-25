@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import hbs from "hbs";
 import path from "path";
+import { forecast, geocode, hasQueryParams } from "./util";
 
 const app: Application = express();
 const publicPath: string = path.join(__dirname, "../public");
@@ -31,6 +32,39 @@ app.get("/help", (req, res) => {
     res.render("help", {
         name: "Jason Winters",
         title: "HELP HELP HELP",
+    });
+});
+
+app.get("/weather", async (req, res) => {
+    if (!req.query.address) {
+        return res.send({
+            error: "Must provide valid address parameter",
+        });
+    }
+    try {
+        const { location, weather } = await forecast(req.query.address);
+        res.send({
+            forecast: {
+                current: weather.data.currently,
+                daily: weather.data.daily,
+            },
+            location: location.data.features[0],
+        });
+    } catch (e) {
+        res.send({
+            error: e,
+        });
+    }
+});
+
+app.get("/products", (req, res) => {
+    if (hasQueryParams(req.query) && !req.query.search) {
+        return res.send({
+            error: "You must provide a search parameter",
+        });
+    }
+    res.send({
+        products: [],
     });
 });
 
