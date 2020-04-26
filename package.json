@@ -4,9 +4,11 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "build": "yarn tsc",
         "debug": "nodemon --inspect -r ts-node/register",
+        "start": "node webServer/dist/app.js",
+        "tc": "tsc --noEmit --skipLibCheck",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "tsc": "tsc --noEmit --skipLibCheck",
         "tsn": "yarn ts-node",
         "watch": "nodemon -e ts,hbs -x yarn tsn"
     },

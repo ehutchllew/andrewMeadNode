@@ -82,7 +82,7 @@ app.get("*", (req, res) => {
     });
 });
 
-const port: number = 3001;
+const port: number | string = process.env.PORT || 3001;
 app.listen(port, () => {
     console.log(`Starting on port ${port}...`);
 });
