@@ -6,7 +6,6 @@
     "scripts": {
         "build": "yarn tsc",
         "debug": "nodemon --inspect -r ts-node/register",
-        "heroku-postbuild": "yarn tsc",
         "start": "node webServer/dist/app.js",
         "tc": "tsc --noEmit --skipLibCheck",
         "test": "echo \"Error: no test specified\" && exit 1",
